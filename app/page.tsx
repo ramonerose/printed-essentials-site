@@ -147,15 +147,7 @@ export default function Home() {
           </h2>
 
           <p className="text-base md:text-lg mb-6 leading-relaxed text-black">
-            From local businesses to growing brands, the reason people choose us is simple — we treat your order like it matters. You get respectful service, clear communication, and prints done with care and integrity every step of the way.
-          </p>
-
-          <p className="text-base md:text-lg mb-6 leading-relaxed text-black">
-            We don't rush jobs or disappear on you. We walk you through options, set honest expectations, and deliver work that meets a higher standard so your brand looks its best.
-          </p>
-
-          <p className="text-base md:text-lg leading-relaxed text-black">
-            If you value quality, communication, and a smooth process, you'll feel right at home here.
+            From local businesses to growing brands, the reason people choose us is simple — we treat your order like it matters. We serve Greenville SC and the Upstate with screen printing, embroidery and high quality DTF printed garments, and we bring the same respectful service and clear communication to every project. We don't rush jobs or disappear on you. We walk you through your options, set honest expectations, and deliver work with care and integrity so your apparel comes out right and your brand looks its best.
           </p>
         </div>
       </section>
