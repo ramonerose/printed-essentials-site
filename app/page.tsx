@@ -3,8 +3,76 @@ import { BrandMarquee } from './components/BrandMarquee';
 import { ReviewsCarousel } from './components/ReviewsCarousel';
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Printed Essentials',
+    description: 'Custom apparel printing service specializing in screen printing, DTF printing, and embroidery in Greenville, SC',
+    url: 'https://printedessentials.com',
+    telephone: '',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Greenville',
+      addressRegion: 'SC',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 34.8526,
+      longitude: -82.3940,
+    },
+    areaServed: [
+      'Greenville, SC',
+      'Simpsonville, SC',
+      'Greer, SC',
+      'Mauldin, SC',
+      'Travelers Rest, SC',
+      'Upstate South Carolina',
+    ],
+    priceRange: '$$',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '15',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Custom Apparel Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Screen Printing',
+            description: 'High-quality screen printing for t-shirts, hoodies, and apparel',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'DTF Printing',
+            description: 'Direct-to-film printing for detailed, full-color designs',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Embroidery',
+            description: 'Professional embroidery for hats, polos, and apparel',
+          },
+        },
+      ],
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative bg-black min-h-[600px] flex items-center overflow-hidden">
         {/* Background Video */}
