@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { BrandMarquee } from './components/BrandMarquee';
 import { ReviewsCarousel } from './components/ReviewsCarousel';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Custom T Shirts, Screen Printing and Embroidery in Greenville SC | Printed Essentials',
+  description: 'Printed Essentials is a custom apparel shop in Greenville SC offering screen printing, embroidery and high quality DTF printed garments for brands, churches, schools and small businesses. Quality blanks, soft prints and clear communication from quote to delivery.',
+};
 
 export default function Home() {
   const jsonLd = {
@@ -9,7 +15,7 @@ export default function Home() {
     name: 'Printed Essentials',
     description: 'Custom apparel printing service specializing in screen printing, DTF printing, and embroidery in Greenville, SC',
     url: 'https://printedessentials.com',
-    telephone: '',
+    telephone: '864-800-6445',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Greenville',
@@ -93,7 +99,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8 text-white">
-              Where Quality Printing Meets Genuine Customer Care.
+              Custom T Shirts, Screen Printing and Embroidery in Greenville SC
             </h1>
             <p className="text-2xl md:text-3xl mb-6 font-semibold text-white">
               Clear communication, attention to detail, and work done with integrity so your brand always looks its best.
@@ -123,6 +129,15 @@ export default function Home() {
 
       {/* Brand Marquee */}
       <BrandMarquee />
+
+      {/* Intro Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
+            We print for local brands, churches, schools and small businesses across Greenville SC and the Upstate. Whether you need soft screen printed tees, embroidered hats or full color DTF printed garments, we help you choose the right blanks, print method and timeline so your people actually want to wear the shirts you give them.
+          </p>
+        </div>
+      </section>
 
       {/* Why Choose Section */}
       <section className="bg-white py-20">
