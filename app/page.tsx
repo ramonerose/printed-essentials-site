@@ -99,7 +99,8 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8 text-white">
-              Quality Printing. Genuine Customer Care.
+              Quality Printing.<br />
+              Genuine Customer Care.
             </h1>
             <p className="text-2xl md:text-3xl mb-6 font-semibold text-white">
               Your go to print shop for custom apparel in Greenville SC.
