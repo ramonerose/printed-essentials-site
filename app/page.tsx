@@ -130,15 +130,6 @@ export default function Home() {
       {/* Brand Marquee */}
       <BrandMarquee />
 
-      {/* Intro Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
-            We print for local brands, churches, schools and small businesses across Greenville SC and the Upstate. Whether you need soft screen printed tees, embroidered hats or full color DTF printed garments, we help you choose the right blanks, print method and timeline so your people actually want to wear the shirts you give them.
-          </p>
-        </div>
-      </section>
-
       {/* Why Choose Section */}
       <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
