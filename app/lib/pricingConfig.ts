@@ -56,15 +56,16 @@ export const QUANTITY_BANDS = [0, 24, 48, 72, 144, 288, 576, 1008] as const;
 
 // Markup multipliers by level (rows) and quantity index (columns)
 // Higher quantities = lower markup multiplier = better per-piece pricing
-export const MARKUP_PERCENTAGES = {
-  1: [425, 375, 325, 275, 250, 225, 200, 188],  // Level 1: $0 - $2.50
-  2: [335, 285, 240, 210, 190, 175, 163, 150],  // Level 2: $2.51 - $3.50
-  3: [260, 220, 193, 173, 160, 148, 138, 128],  // Level 3: $3.51 - $5.50
-  4: [210, 175, 155, 140, 130, 120, 113, 105],  // Level 4: $5.51 - $8.50
-  5: [160, 135, 120, 108, 100, 93, 88, 83],     // Level 5: $8.51 - $13.50
-  6: [130, 110, 98, 88, 83, 78, 73, 68],        // Level 6: $13.51 - $15.50
-  7: [110, 93, 83, 75, 70, 65, 61, 58],         // Level 7: $15.51 - $18.50
-  8: [90, 76, 68, 61, 58, 54, 51, 48],          // Level 8: $18.51+
+// These are direct multipliers applied to garment cost (e.g., 2.5 means price = cost × 2.5)
+export const MARKUP_MATRIX = {
+  1: [4.25, 3.75, 3.25, 2.75, 2.50, 2.25, 2.00, 1.88],  // Level 1: $0 - $2.50
+  2: [3.35, 2.50, 2.40, 2.10, 1.90, 1.75, 1.63, 1.50],  // Level 2: $2.51 - $3.50
+  3: [2.60, 2.20, 1.93, 1.73, 1.60, 1.48, 1.38, 1.28],  // Level 3: $3.51 - $5.50
+  4: [2.10, 1.75, 1.55, 1.40, 1.30, 1.20, 1.13, 1.05],  // Level 4: $5.51 - $8.50
+  5: [1.60, 1.35, 1.20, 1.08, 1.00, 0.93, 0.88, 0.83],  // Level 5: $8.51 - $13.50
+  6: [1.30, 1.10, 0.98, 0.88, 0.83, 0.78, 0.73, 0.68],  // Level 6: $13.51 - $15.50
+  7: [1.10, 0.93, 0.83, 0.75, 0.70, 0.65, 0.61, 0.58],  // Level 7: $15.51 - $18.50
+  8: [0.90, 0.76, 0.68, 0.61, 0.58, 0.54, 0.51, 0.48],  // Level 8: $18.51+
 } as const;
 
 // ============================================================================
@@ -77,9 +78,19 @@ export const DTF_PRICING = {
   leftChest: 2.00,
   mediumPrint: 4.00,      // Medium front or back (up to 10x12)
   largePrint: 7.00,       // Large front or back (up to 12x16)
-  sleevSmall: 1.50,      // Small sleeve (up to 3x3)
-  sleeveLarge: 2.50,     // Large sleeve (up to 3.5x15)
+  sleeveSmall: 1.50,      // Small sleeve (up to 3x3)
+  sleeveLarge: 2.50,      // Large sleeve (up to 3.5x15)
   neckLabel: 1.50,
+} as const;
+
+// ============================================================================
+// SHIPPING CONFIGURATION
+// ============================================================================
+// SanMar shipping rules: free shipping on orders $200+, otherwise $45 flat fee
+
+export const SHIPPING_CONFIG = {
+  freeShippingThreshold: 200,
+  flatShippingFee: 45,
 } as const;
 
 // ============================================================================

@@ -8,7 +8,8 @@
 import {
   COST_LEVELS,
   QUANTITY_BANDS,
-  MARKUP_PERCENTAGES,
+  MARKUP_MATRIX,
+  SHIPPING_CONFIG,
 } from './pricingConfig';
 
 /**
@@ -36,28 +37,42 @@ export function getQuantityBandIndex(quantity: number): number {
 }
 
 /**
- * Get the markup percentage for a given cost and quantity
+ * Get the markup multiplier for a given cost and quantity
+ * Returns a direct multiplier (e.g., 2.5, 1.9, 1.75)
  */
-export function getMarkupPercentage(cost: number, quantity: number): number {
+export function getMultiplier(cost: number, quantity: number): number {
   const level = getCostLevel(cost);
   const quantityIndex = getQuantityBandIndex(quantity);
 
-  const markupArray = MARKUP_PERCENTAGES[level as keyof typeof MARKUP_PERCENTAGES];
-  return markupArray[quantityIndex];
+  const multiplierArray = MARKUP_MATRIX[level as keyof typeof MARKUP_MATRIX];
+  return multiplierArray[quantityIndex];
+}
+
+/**
+ * Calculate the shipping cost per piece based on blanks subtotal
+ * Free shipping if blanks subtotal >= $200, otherwise $45 flat fee
+ */
+export function getShippingPerPiece(garmentCost: number, quantity: number): number {
+  const blanksSubtotal = garmentCost * quantity;
+
+  if (blanksSubtotal >= SHIPPING_CONFIG.freeShippingThreshold) {
+    return 0;
+  }
+
+  return SHIPPING_CONFIG.flatShippingFee / quantity;
 }
 
 /**
  * Calculate the garment price per piece
- * Formula: cost * (1 + markupPercent / 100)
+ * Formula: cost * multiplier (direct multiplication, not percentage)
  */
 export function calculateGarmentPrice(cost: number, quantity: number): number {
-  const markupPercent = getMarkupPercentage(cost, quantity);
-  const multiplier = 1 + markupPercent / 100;
+  const multiplier = getMultiplier(cost, quantity);
   return cost * multiplier;
 }
 
 /**
- * Calculate the total per-piece price including garment and DTF add-ons
+ * Calculate the total per-piece price including garment, DTF add-ons, and shipping
  */
 export function calculatePerPiecePrice(
   garmentCost: number,
@@ -65,7 +80,8 @@ export function calculatePerPiecePrice(
   dtfAddOns: number
 ): number {
   const garmentPrice = calculateGarmentPrice(garmentCost, quantity);
-  const totalPerPiece = garmentPrice + dtfAddOns;
+  const shippingPerPiece = getShippingPerPiece(garmentCost, quantity);
+  const totalPerPiece = garmentPrice + dtfAddOns + shippingPerPiece;
 
   // Round to nearest $0.25
   return Math.round(totalPerPiece * 4) / 4;
@@ -90,14 +106,17 @@ export function calculateQuote(
   quantity: number,
   dtfAddOns: number
 ) {
+  const garmentPrice = calculateGarmentPrice(garmentCost, quantity);
+  const shippingPerPiece = getShippingPerPiece(garmentCost, quantity);
   const perPiece = calculatePerPiecePrice(garmentCost, quantity, dtfAddOns);
   const total = calculateOrderTotal(perPiece, quantity);
 
   return {
     perPiece,
     total,
-    garmentPrice: calculateGarmentPrice(garmentCost, quantity),
+    garmentPrice,
     dtfAddOns,
+    shippingPerPiece,
     quantity,
   };
 }

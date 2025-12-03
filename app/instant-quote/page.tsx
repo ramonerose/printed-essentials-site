@@ -40,8 +40,8 @@ type DTFLocation = {
 const DTF_LOCATIONS: DTFLocation[] = [
   { id: 'leftChest', label: 'Left Chest', price: DTF_PRICING.leftChest },
   { id: 'rightChest', label: 'Right Chest', price: DTF_PRICING.leftChest },
-  { id: 'leftSleeveSmall', label: 'Left Sleeve (Small)', price: DTF_PRICING.sleevSmall },
-  { id: 'rightSleeveSmall', label: 'Right Sleeve (Small)', price: DTF_PRICING.sleevSmall },
+  { id: 'leftSleeveSmall', label: 'Left Sleeve (Small)', price: DTF_PRICING.sleeveSmall },
+  { id: 'rightSleeveSmall', label: 'Right Sleeve (Small)', price: DTF_PRICING.sleeveSmall },
   { id: 'leftSleeveLarge', label: 'Left Sleeve Large (Long Sleeve)', price: DTF_PRICING.sleeveLarge },
   { id: 'rightSleeveLarge', label: 'Right Sleeve Large (Long Sleeve)', price: DTF_PRICING.sleeveLarge },
   { id: 'frontMedium', label: 'Front Medium (up to 10x12)', price: DTF_PRICING.mediumPrint },
