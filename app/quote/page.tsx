@@ -4,16 +4,19 @@ import { useEffect } from 'react';
 
 export default function Quote() {
   useEffect(() => {
-    // Load the Fillout script
-    const script = document.createElement('script');
-    script.src = 'https://server.fillout.com/embed/v1/';
-    script.async = true;
-    document.body.appendChild(script);
+    // Check if script already exists
+    const existingScript = document.querySelector('script[src="https://server.fillout.com/embed/v1/"]');
 
-    return () => {
-      // Cleanup script on unmount
-      document.body.removeChild(script);
-    };
+    if (!existingScript) {
+      // Load the Fillout script
+      const script = document.createElement('script');
+      script.src = 'https://server.fillout.com/embed/v1/';
+      script.async = true;
+      document.body.appendChild(script);
+
+      // Don't remove the script on unmount - let it persist
+      return undefined;
+    }
   }, []);
 
   return (
