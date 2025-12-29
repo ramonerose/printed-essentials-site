@@ -44,11 +44,12 @@ export default function Footer() {
           <div>
             <h4 className="font-bold uppercase text-sm tracking-wide mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
+              {/* Temporarily hidden - uncomment when pricing is updated */}
+              {/* <li>
                 <Link href="/instant-quote" className="text-gray-400 hover:text-[#00A3AD] transition-colors text-sm">
                   Instant Quote
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/gallery" className="text-gray-400 hover:text-[#00A3AD] transition-colors text-sm">
                   Our Work

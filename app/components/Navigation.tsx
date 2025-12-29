@@ -63,9 +63,10 @@ export default function Navigation() {
             <Link href="/gallery" className="text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors">
               OUR WORK
             </Link>
-            <Link href="/instant-quote" className="text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors">
+            {/* Temporarily hidden - uncomment when pricing is updated */}
+            {/* <Link href="/instant-quote" className="text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors">
               INSTANT QUOTE
-            </Link>
+            </Link> */}
             <Link href="/contact" className="text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors">
               CONTACT
             </Link>
@@ -102,13 +103,14 @@ export default function Navigation() {
             >
               OUR WORK
             </Link>
-            <Link
+            {/* Temporarily hidden - uncomment when pricing is updated */}
+            {/* <Link
               href="/instant-quote"
               className="block text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               INSTANT QUOTE
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className="block text-base font-bold uppercase tracking-wide text-white hover:text-[#00a3ad] transition-colors py-2"

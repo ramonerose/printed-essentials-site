@@ -14,12 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    {
-      url: 'https://printedessentials.com/instant-quote',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    // Temporarily hidden - uncomment when pricing is updated
+    // {
+    //   url: 'https://printedessentials.com/instant-quote',
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.9,
+    // },
     {
       url: 'https://printedessentials.com/gallery',
       lastModified: new Date(),
